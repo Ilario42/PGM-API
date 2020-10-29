@@ -14,12 +14,11 @@ public class StatsAdmin implements CommandExecutor, Listener {
 		if (p.getPlayer().hasPermission("pgmapi.admin")) {
 			if (args.length == 0) {
 				sender.sendMessage("§9PGM-API §8» §6Stats Commands Admin:");
-				sender.sendMessage("§8» §e/pgmapi setkill <user> <kill>");
-				sender.sendMessage("§8» §e/pgmapi setdeath <user> <death>");
-				sender.sendMessage("§8» §e/pgmapi setcoins <user> <coins>");
-				sender.sendMessage("§8» §e/pgmapi stats <user>");
+				sender.sendMessage("§8» §e/pgmstats setkill <user> <kill>");
+				sender.sendMessage("§8» §e/pgmstats setdeath <user> <death>");
+				sender.sendMessage("§8» §e/pgmstats setcoins <user> <coins>");
+				sender.sendMessage("§8» §e/pgmstats stats <user>");
 				sender.sendMessage(" ");
-				sender.sendMessage("§9PGM-API §8» §6Powered By §bIlario42");
 				sender.sendMessage("§7https://www.ilariochiera.it/documentations/pgmapi");
 			} else  {
 				if (args[0].equalsIgnoreCase("setkill")) {
@@ -81,3 +80,4 @@ public class StatsAdmin implements CommandExecutor, Listener {
 	}
 
 }
+
