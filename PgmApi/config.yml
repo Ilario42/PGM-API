@@ -1,0 +1,14 @@
+#PGM API: Powered By Ilario42: www.ilariochiera.it/documentations/pgmapi
+
+Server: "PGM-1"
+
+Stats:
+    Kills: 1
+    Death: 1
+
+MySQL:  
+    Host: localhost
+    Port: 3306
+    DbName: minecraft
+    Username: root
+    Password: ''  

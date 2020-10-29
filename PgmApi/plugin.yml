@@ -1,0 +1,9 @@
+name: PGM-API
+author: Ilario42
+version: 1.0
+main: it.ilariochiera.www.main.Main
+description: Api for PGM Plugin
+softdepend: [PGM]
+commands:
+    PGMAPI:
+        description: "All commands plugin"
