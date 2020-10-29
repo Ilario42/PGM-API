@@ -16,6 +16,7 @@ public class StatsAdmin implements CommandExecutor, Listener {
 				sender.sendMessage("§9PGM-API §8» §6Stats Commands Admin:");
 				sender.sendMessage("§8» §e/pgmapi setkill <user> <kill>");
 				sender.sendMessage("§8» §e/pgmapi setdeath <user> <death>");
+				sender.sendMessage("§8» §e/pgmapi setcoins <user> <death>");
 				sender.sendMessage("§8» §e/pgmapi stats <user>");
 				sender.sendMessage(" ");
 				sender.sendMessage("§9PGM-API §8» §6Powered By §bIlario42");
@@ -44,7 +45,19 @@ public class StatsAdmin implements CommandExecutor, Listener {
 						}
 						MySQL.setStringStringInt(args[1], "Deaths", Integer.valueOf(args[2]));
 						sender.sendMessage("§9PGM-API §8» §b" + args[2] + " §aDeaths §2set to §b" + args[1]);
-					} else sender.sendMessage("§9PGM-API §8» §cError: §aUse §b/pgmapi");		
+					} else sender.sendMessage("§9PGM-API §8» §cError: §aUse §b/pgmapi");
+				} else if (args[0].equalsIgnoreCase("setcoins")) {
+					if ((args[1]) != null && (args[2]) != null) {
+						try{
+						    @SuppressWarnings("unused")
+							int num = Integer.parseInt(args[2]);
+						} catch (NumberFormatException e) {
+							p.sendMessage("§9PGM-API §8» §cError. §b" + args[2] + "§a is not a number!");
+							return true;
+						}
+						MySQL.setStringStringInt(args[1], "Coins", Integer.valueOf(args[2]));
+						sender.sendMessage("§9PGM-API §8» §b" + args[2] + " §aCoins §2set to §b" + args[1]);
+					} else sender.sendMessage("§9PGM-API §8» §cError: §aUse §b/pgmapi");
 				} else if (args[0].equalsIgnoreCase("stats")) {
 					String lastlogin = MySQL.getStringString(args[1], "LastLogin");
 					if (lastlogin != null) {
@@ -67,4 +80,3 @@ public class StatsAdmin implements CommandExecutor, Listener {
 	}
 
 }
-
