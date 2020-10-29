@@ -8,6 +8,8 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import it.ilariochiera.www.commands.General;
+import it.ilariochiera.www.commands.Ranks;
 import it.ilariochiera.www.commands.StatsAdmin;
 import it.ilariochiera.www.events.JoinClass;
 import it.ilariochiera.www.events.KillClass;
@@ -29,7 +31,10 @@ public class Main extends JavaPlugin implements Listener {
 		getServer().getPluginManager().registerEvents(this, this);
 	    getServer().getPluginManager().registerEvents(new JoinClass(this), this);
 	    getServer().getPluginManager().registerEvents(new KillClass(this), this);
-	    getCommand("pgmapi").setExecutor(new StatsAdmin());
+	    getCommand("pgmstats").setExecutor(new StatsAdmin());
+	    getCommand("pgmranks").setExecutor(new Ranks());
+	    getCommand("pgm").setExecutor(new General());
+	    getCommand("pgmapi").setExecutor(new General());
 		MySQL.host = getConfig().getString("MySQL.Host");
 		MySQL.port = getConfig().getString("MySQL.Port");
 	    MySQL.db = getConfig().getString("MySQL.DbName");
