@@ -68,6 +68,19 @@ public class MySQL {
 	      }  
 	  }
 	  
+	  public static synchronized void setStringS(String val2, String campo, String valore) {
+		    if (connection != null)
+		      try {
+		        PreparedStatement update = connection.prepareStatement("UPDATE `Users` SET " + campo + "=? WHERE Player=?;");
+		        update.setString(1, valore);
+		        update.setString(2, val2);
+		        update.executeUpdate();
+		        update.close();
+		      } catch (SQLException e1) {
+		        e1.printStackTrace();
+		      }  
+		  }
+	  
 	  public static synchronized void setStringInt(Player player, String campo, int valore) {
 		    if (connection != null)
 		      try {
