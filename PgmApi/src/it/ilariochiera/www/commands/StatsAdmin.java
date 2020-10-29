@@ -16,7 +16,7 @@ public class StatsAdmin implements CommandExecutor, Listener {
 				sender.sendMessage("§9PGM-API §8» §6Stats Commands Admin:");
 				sender.sendMessage("§8» §e/pgmapi setkill <user> <kill>");
 				sender.sendMessage("§8» §e/pgmapi setdeath <user> <death>");
-				sender.sendMessage("§8» §e/pgmapi setcoins <user> <death>");
+				sender.sendMessage("§8» §e/pgmapi setcoins <user> <coins>");
 				sender.sendMessage("§8» §e/pgmapi stats <user>");
 				sender.sendMessage(" ");
 				sender.sendMessage("§9PGM-API §8» §6Powered By §bIlario42");
