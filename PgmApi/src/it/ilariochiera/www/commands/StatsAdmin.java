@@ -66,6 +66,7 @@ public class StatsAdmin implements CommandExecutor, Listener {
 					sender.sendMessage("§9PGM-API §8» §eLast: §d" + lastlogin);
 					sender.sendMessage("§9PGM-API §8» §eKills: §a" + MySQL.getStringString(args[1], "Kills"));
 					sender.sendMessage("§9PGM-API §8» §eDeaths: §4" + MySQL.getStringString(args[1], "Deaths"));
+					sender.sendMessage("§9PGM-API §8» §eCoins: §d" + MySQL.getStringString(args[1], "Coins"));
 					} else {
 						sender.sendMessage("§9PGM-API §8» §7User not found!");
 					}
