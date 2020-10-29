@@ -7,3 +7,9 @@ softdepend: [PGM]
 commands:
     PGMAPI:
         description: "All commands plugin"
+    PGM:
+        description: "All commands plugin"
+    pgmstats:
+        description: "All stats commands"
+    pgmranks:
+        description: "All ranks commands"

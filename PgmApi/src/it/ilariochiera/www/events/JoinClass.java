@@ -28,7 +28,7 @@ public class JoinClass implements Listener {
 	      try {
 	        PreparedStatement np = MySQL.connection.prepareStatement("INSERT INTO `Users` (`Player`, `Rank`, `Online`, `LastLogin`, `Coins`, `Kills`, `Deaths`, `Wins`, `Losts`) value (?,?,?,?,?,?,?,?,?);");
 	        np.setString(1, e.getPlayer().getName());
-	        np.setString(2, "User");
+	        np.setString(2, "Null");
 	        np.setString(3, "Offline");
 	        np.setString(4, "0");
 	        np.setString(5, "0");

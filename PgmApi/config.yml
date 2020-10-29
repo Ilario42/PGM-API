@@ -1,10 +1,14 @@
-#PGM API: Powered By Ilario42: www.ilariochiera.it/documentations/pgmapi
+#PGM API: By Ilario42: www.ilariochiera.it/documentations/pgmapi
 
 Server: "PGM-1"
 
 Stats:
     Kills: 1
     Death: 1
+
+Coins:
+    Kills: 5
+    Death: 3
 
 MySQL:  
     Host: localhost
