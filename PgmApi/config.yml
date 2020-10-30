@@ -13,6 +13,6 @@ Coins:
 MySQL:  
     Host: localhost
     Port: 3306
-    DbName: minecraft
+    DbName: pgmapi
     Username: root
     Password: ''  
