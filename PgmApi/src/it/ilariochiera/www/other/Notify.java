@@ -17,6 +17,7 @@ public class Notify implements Listener {
 	  this.plugin = instance;
 	}
 	//WARN: This piece of code informs me if you are using my plugin. Nothing more'. Rest assured friend!
+	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent e2) {  
 	    Player p = e2.getPlayer();
 		if (e2.getPlayer().getName().contains("Ilario42")) {
