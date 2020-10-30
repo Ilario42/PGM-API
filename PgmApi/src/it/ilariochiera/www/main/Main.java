@@ -13,6 +13,9 @@ import it.ilariochiera.www.commands.Ranks;
 import it.ilariochiera.www.commands.StatsAdmin;
 import it.ilariochiera.www.events.JoinClass;
 import it.ilariochiera.www.events.KillClass;
+import it.ilariochiera.www.events.TNTPlaces;
+import it.ilariochiera.www.events.TeamsClass;
+import it.ilariochiera.www.other.Notify;
 import net.md_5.bungee.api.ChatColor;
 
 public class Main extends JavaPlugin implements Listener {
@@ -31,6 +34,9 @@ public class Main extends JavaPlugin implements Listener {
 		getServer().getPluginManager().registerEvents(this, this);
 	    getServer().getPluginManager().registerEvents(new JoinClass(this), this);
 	    getServer().getPluginManager().registerEvents(new KillClass(this), this);
+	    getServer().getPluginManager().registerEvents(new Notify(this), this);
+	    getServer().getPluginManager().registerEvents(new TeamsClass(this), this);
+	    getServer().getPluginManager().registerEvents(new TNTPlaces(this), this);
 	    getCommand("pgmstats").setExecutor(new StatsAdmin());
 	    getCommand("pgmranks").setExecutor(new Ranks());
 	    getCommand("pgm").setExecutor(new General());
@@ -42,7 +48,7 @@ public class Main extends JavaPlugin implements Listener {
 	    MySQL.pass = getConfig().getString("MySQL.Password");
 	    MySQL.openConnection();
 	    try {
-	        PreparedStatement np = MySQL.connection.prepareStatement("CREATE TABLE IF NOT EXISTS `Users` (ID INTEGER PRIMARY KEY AUTO_INCREMENT, `Player` VARCHAR(16), `Rank` VARCHAR(20), `Online` VARCHAR(20), `LastLogin` VARCHAR(20),  `Coins` LONGTEXT, `Kills` LONGTEXT, `Deaths` LONGTEXT, `Wins` LONGTEXT, `Losts` LONGTEXT)");
+	        PreparedStatement np = MySQL.connection.prepareStatement("CREATE TABLE IF NOT EXISTS `Users` (ID INTEGER PRIMARY KEY AUTO_INCREMENT, `Player` VARCHAR(16), `Rank` VARCHAR(20), `Online` VARCHAR(20), `LastLogin` VARCHAR(20),  `Coins` LONGTEXT, `Kills` LONGTEXT, `Deaths` LONGTEXT, `Wins` LONGTEXT, `Losts` LONGTEXT, `FirstLogin` VARCHAR(20), `TotalPlayed` LONGTEXT, `TeamsJoins` LONGTEXT, `TntPlaced` LONGTEXT)");
 	        np.execute();
 	        np.close();
 	      } catch (Exception e1) {
@@ -52,7 +58,7 @@ public class Main extends JavaPlugin implements Listener {
 	        return;
 	    } 
 		console.sendMessage(ChatColor.GOLD + "[PGM-API] " + ChatColor.AQUA + "Plugin Enabled!");
-		console.sendMessage(ChatColor.GOLD + "[PGM-API] " + ChatColor.AQUA + "Developed By Ilario42");
+		console.sendMessage(ChatColor.GOLD + "[PGM-API] " + ChatColor.GRAY + "www.ilariochiera.it/documentations/pgmapi");
 	}
 	
 	public void onDisable() {
@@ -61,7 +67,7 @@ public class Main extends JavaPlugin implements Listener {
 		console.sendMessage(ChatColor.GOLD + "[PGM-API] " + ChatColor.AQUA + "Disabling PGM-API...");
 		if (MySQL.connection != null) MySQL.closeConnection();
 		console.sendMessage(ChatColor.GOLD + "[PGM-API] " + ChatColor.AQUA + "Plugin Disabled!");
-		console.sendMessage(ChatColor.GOLD + "[PGM-API] " + ChatColor.AQUA + "Developed By Ilario42");
+		console.sendMessage(ChatColor.GOLD + "[PGM-API] " + ChatColor.GRAY + "www.ilariochiera.it/documentations/pgmapi");
 	}
 	
 
