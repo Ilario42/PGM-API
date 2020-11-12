@@ -27,14 +27,16 @@ private Main plugin;
 		String killscconfig = this.plugin.getConfig().getString("Coins.Kills");
 		int killsconfigint = Integer.valueOf(killsconfig);
 		int killscconfigint = Integer.valueOf(killscconfig);
-		String deathsconfig = this.plugin.getConfig().getString("Stats.Deaths");
-		String deathscconfig = this.plugin.getConfig().getString("Coins.Deaths");
+		String deathsconfig = this.plugin.getConfig().getString("Stats.Death");
+		String deathscconfig = this.plugin.getConfig().getString("Coins.Death");
 		int deathsconfigint = Integer.valueOf(deathsconfig);
 		int deathscconfigint = Integer.valueOf(deathscconfig);
 		MySQL.setStringInt(killer, "Kills", killer1int + killsconfigint);
 		MySQL.setStringInt(killed, "Deaths", killed1int + deathsconfigint);
 		MySQL.setStringInt(killer, "Coins", killer1int + killscconfigint);
-		MySQL.setStringInt(killed, "Coins", killed1int - deathscconfigint);
+		if (killed1int > 0) {
+			MySQL.setStringInt(killed, "Coins", killed1int - deathscconfigint);
+		} 
 	}
 
 }
